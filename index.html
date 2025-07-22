@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heart Failure Prediction</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f0f4f8;
+            text-align: center;
+            padding: 30px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        form {
+            display: inline-block;
+            text-align: left;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px #ccc;
+        }
+        input {
+            margin: 10px 0;
+            padding: 8px;
+            width: 100%;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Heart Failure Prediction</h1>
+    <form action="/predict" method="POST">
+        <label>Age:</label><br>
+        <input type="text" name="age"><br>
+        <label>Resting BP:</label><br>
+        <input type="text" name="RestingBP"><br>
+        <label>Cholesterol:</label><br>
+        <input type="text" name="Cholesterol"><br>
+        <label>Max HR:</label><br>
+        <input type="text" name="MaxHR"><br>
+        <label>Oldpeak:</label><br>
+        <input type="text" name="Oldpeak"><br>
+        <label>Sex (1=Male, 0=Female):</label><br>
+        <input type="text" name="Sex"><br>
+        <label>ChestPainType (0-3):</label><br>
+        <input type="text" name="ChestPainType"><br>
+        <label>FastingBS (1/0):</label><br>
+        <input type="text" name="FastingBS"><br>
+        <label>ExerciseAngina (1/0):</label><br>
+        <input type="text" name="ExerciseAngina"><br><br>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction_text %}
+    <h2>{{ prediction_text }}</h2>
+    {% endif %}
+
+</body>
+</html>
